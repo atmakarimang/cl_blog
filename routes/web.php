@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Kategori;
 use App\Models\Postingan;
 use App\Models\User;
@@ -50,6 +53,7 @@ Route::get('/kategori', function () {
     ]);
 });
 
+/*
 Route::get('/kategori/{kategori:slug}', function (Kategori $kategori) {
     return view('blog', [
         'title' => "Kategori Postingan : $kategori->nama",
@@ -65,3 +69,20 @@ Route::get('/authors/{author:username}', function (User $author) {
         'postinganblog' => $author->postingan->load('kategori', 'user')
     ]);
 });
+*/
+
+//Login & Register
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/register', [RegisterController::class, 'index']);
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest');
+
+//Logout
+Route::post('/logout', [LoginController::class, 'logout']);
+
+//Dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->middleware('auth');
+
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');

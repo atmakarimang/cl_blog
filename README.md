@@ -2,4 +2,6 @@
 
 Website blog sederhana dibuat dengan laravel versi 8
 
-Masih progress untuk perbaikan fungsi crud backend nya
+Sudah progress 98%
+
+Untuk demo program bisa dicek di sini : http://atmablog.herokuapp.com/blog

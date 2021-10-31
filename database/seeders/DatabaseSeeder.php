@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        User::factory(3)->create();
+        //User::factory(3)->create();
 
         /*
         User::create([
@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'web-programming'
         ]);
 
-        Postingan::factory(29)->create();
+        //Postingan::factory(29)->create();
 
         /*
         Postingan::create([

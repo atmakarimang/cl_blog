@@ -5,7 +5,7 @@
   
   <div class="container">
       <div class="row">
-          <div class="col mb-5">
+          <div class="col mb-5 shadow">
             <div class="table-responsive">
             <table class="table">
                 <caption style="text-align: justify">

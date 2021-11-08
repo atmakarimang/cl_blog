@@ -5,7 +5,7 @@
   
   <div class="container">
       <div class="row">
-          <div class="col mb-5"> 
+          <div class="col mb-5">
             <div class="table-responsive">
             <table class="table">
                 <caption style="text-align: justify">
@@ -25,7 +25,7 @@
                     <th scope="col">M</th>
                     <th scope="col">S</th>
                     <th scope="col">K</th>
-                    <th scope="col">Pts</th>
+                    <th scope="col">Poin</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -33,19 +33,16 @@
                     $no = 1;
                   @endphp 
                   @foreach ($dataklasemen['data']['standings'] as $dataepl)
-                    @php
-                    //echo $dataepl['team']['name'];
+                    @php 
                     $color = ''; 
                     if(!empty($dataepl['note'])){
-
                         $color = $dataepl['note']['color'];
                     }
                     @endphp            
-                  <tr style="background-color: {{ $color }}"> 
+                  <tr style="background-color: {{ $color }}; white-space: nowrap"> 
                     <th scope="row">{{ $no++ }}</th>
-                    <td>
-                        <img src="{{ $dataepl['team']['logos'][0]['href'] }}" width="30" height="30" class="me-2">
-                        {{ $dataepl['team']['name'] }}
+                    <td> 
+                        <img src="{{ $dataepl['team']['logos'][0]['href'] }}" width="30" height="30" class="me-2">{{ $dataepl['team']['name'] }}
                     </td>
                     <td>{{ $dataepl['stats'][3]['value'] }}</td>
                     <td>{{ $dataepl['stats'][0]['value'] }}</td> 
@@ -56,7 +53,7 @@
                   @endforeach  
                 </tbody>
               </table>
-              </div>
+              </div> 
               <!--p style="text-align: justify"><b>*</b> Data klasemen diatas diambil dari Football Standings API milik mas azharimm, berikut link repo github beliau : <a href="https://github.com/azharimm/football-standings-api" target="blank">Klik Disini</a></p-->
           </div>
       </div>

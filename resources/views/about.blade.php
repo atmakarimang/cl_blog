@@ -10,7 +10,7 @@
           <div class="col-md-8">
             <div class="card-body">
               <h3 class="card-title">{{ $name }}</h3>
-              <p class="card-text">Lulusan Teknik Informatika STIKI Malang, Domisili Kota Malang, Interest di bidang Pemograman, Terutama di web dev, sekarang mendalami laravel, NodeJS, dan React</p> 
+              <p class="card-text">Lulusan Teknik Informatika STIKI Malang, Domisili Kota Malang, Interest di bidang Pemograman, Terutama di web development. Sekarang saya sedang mendalami laravel, NodeJS, dan React</p> 
               <p>Email Saya : {{ $email }}</p>   
             </div>
           </div>

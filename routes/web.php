@@ -33,9 +33,9 @@ Route::get('/about', function () {
     return view('about', [
         "title" => "About",
         "active" => "About",
-        "name" => "Ahmad Reskey",
-        "email" => "ahmadreskey@gmail.com",
-        "img" => "cr7.jpg"
+        "name" => "Atma Karimang Soebekty Tupelu",
+        "email" => "atmakarimang@gmail.com",
+        "img" => "Atma.jpg"
     ]);
 });
 

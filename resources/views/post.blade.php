@@ -10,7 +10,7 @@
                 <!--p>{{ $post["body"] }}</p-->
                 <img src="https://source.unsplash.com/1200x400/?{{ $post->kategori->nama }}" alt="{{ $post->kategori->nama }}" class="img-fluid">
                 
-                <article class="my-3 fs-7">
+                <article class="my-3 fs-7" style="text-align: justify">
                     {!! $post["body"] !!}
                 </article>
                 

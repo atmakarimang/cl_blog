@@ -33,9 +33,9 @@ Route::get('/about', function () {
     return view('about', [
         "title" => "About",
         "active" => "About",
-        "name" => "Atma Karimang Soebekty Tupelu",
+        "name" => "ATMA BLOG",
         "email" => "atmakarimang@gmail.com",
-        "img" => "Atma.jpg"
+        "img" => "logo.png"
     ]);
 });
 

@@ -4,9 +4,9 @@
   <h1 class="mb-5">Kategori Postingan</h1> 
   
   <div class="container">
-      <div class="row">
+      <div class="row"> 
         @foreach ($kategoriall as $kategori)
-          <div class="col-md-4">
+          <div class="col-md-4 p-3"> 
             <a href="/kategori/{{ $kategori->slug }}">
             <div class="card bg-dark text-white">
                 <img src="https://source.unsplash.com/500x500/?{{ $kategori->nama }}" class="card-img" alt="{{ $kategori->nama }}">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardPostController;
+use App\Http\Controllers\KlasemenController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -52,6 +53,8 @@ Route::get('/kategori', function () {
         'kategoriall' => Kategori::all()
     ]);
 });
+
+Route::get('/klasemenepl', [KlasemenController::class, 'index']);
 
 /*
 Route::get('/kategori/{kategori:slug}', function (Kategori $kategori) {

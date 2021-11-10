@@ -20,6 +20,7 @@ class CreatePostingansTable extends Migration
             $table->string('judul');
             $table->string('slug')->unique();
             $table->string('author');
+            $table->string('image')->nullable();
             $table->text('isi');
             $table->text('body');
             $table->timestamp('published_at')->nullable();

@@ -22,7 +22,15 @@
 
   @if($postinganblog->count())
   <div class="card mb-3">
-    <img src="https://source.unsplash.com/1200x400/?{{ $postinganblog[0]->kategori->nama }}" class="card-img-top" alt="...">
+    
+    @if ($postinganblog[0]->image)
+      <div style="max-height: 350px; overflow: hidden;">
+        <img src="{{ asset('storage/' . $postinganblog[0]->image) }}" class="card-img-top" alt="...">
+      </div>
+    @else
+      <img src="https://source.unsplash.com/1200x400/?{{ $postinganblog[0]->kategori->nama }}" class="card-img-top" alt="...">
+    @endif
+    
     <div class="card-body text-center">
       <h3 class="card-title"><a href="/blog/{{ $postinganblog[0]->slug }}" class="text-decoration-none text-dark">{{ $postinganblog[0]->judul }}</a></h3>
       <p>
@@ -45,7 +53,13 @@
               {{ $post->kategori->nama }} 
             </a>
           </div>
-          <img src="https://source.unsplash.com/400x300/?{{ $post->kategori->nama }}" class="card-img-top" alt="{{ $post->kategori->nama }}">
+
+          @if ($post->image)
+            <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ $post->kategori->nama }}">
+          @else
+            <img src="https://source.unsplash.com/400x300/?{{ $post->kategori->nama }}" class="card-img-top" alt="{{ $post->kategori->nama }}">
+          @endif
+          
           <div class="card-body">
             <h5 class="card-title">{{ $post->judul }}</h5>
             <p> 

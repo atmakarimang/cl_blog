@@ -8,7 +8,14 @@
                 <h2 class="mb-3">{{ $post["judul"] }}</h2> 
                 <p>By. <a href="/blog?authors={{ $post->user->username }}" class="text-decoration-none">{{ $post->user->name }}</a> in <a href="/blog?category={{ $post->kategori->slug }}" class="text-decoration-none">{{ $post->kategori->nama }}</a></p>
                 <!--p>{{ $post["body"] }}</p-->
+
+                @if ($post->image)
+                <div style="max-height: 350px; overflow: hidden;"> 
+                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->kategori->nama }}" class="img-fluid">
+                </div>
+                @else
                 <img src="https://source.unsplash.com/1200x400/?{{ $post->kategori->nama }}" alt="{{ $post->kategori->nama }}" class="img-fluid">
+                @endif
                 
                 <article class="my-3 fs-7" style="text-align: justify">
                     {!! $post["body"] !!}

@@ -7,6 +7,7 @@ use App\Models\Postingan;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPostController extends Controller
 {
@@ -46,8 +47,13 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:postingans',
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validateData['image'] = $request->file('image')->store('post-image');
+        }
 
         $validateData['judul'] = $request->title;
         $validateData['kategori_id'] = $request->category_id;
@@ -99,11 +105,19 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'slug' => "required|unique:postingans,slug,$post->id",
             'category_id' => 'required',
+            'image' => 'image|file|max:1024',
             'body' => 'required'
         ]);
 
         unset($validateData['title']);
         unset($validateData['category_id']);
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validateData['image'] = $request->file('image')->store('post-image');
+        }
 
         $validateData['judul'] = $request->title;
         $validateData['kategori_id'] = $request->category_id;
@@ -124,6 +138,9 @@ class DashboardPostController extends Controller
      */
     public function destroy(Postingan $post)
     {
+        if ($post->image) {
+            Storage::delete($post->image);
+        }
         Postingan::destroy($post->id);
         return redirect('/dashboard/posts')->with('success', 'New post has been deleted!');
     }

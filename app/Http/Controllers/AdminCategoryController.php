@@ -113,7 +113,7 @@ class AdminCategoryController extends Controller
 
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Kategori::class, 'slug', $request->nama);
+        $slug = SlugService::createSlug(Kategori::class, 'slug', $request->title);
         return response()->json(['slug' => $slug]);
     }
 }

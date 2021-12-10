@@ -27,6 +27,14 @@
           </a>
         </li>
       </ul>
+      <ul class="nav flex-column mt-5">
+        <li class="nav-item"> 
+          <a class="nav-link" href="/" target="_blank">
+            <span data-feather="eye"></span>
+            Show Blog
+          </a>
+        </li>
+      </ul>
       @endcan
 
     </div> 

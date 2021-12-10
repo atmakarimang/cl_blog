@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class AdminCategoryController extends Controller
 {
@@ -26,7 +27,9 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.categories.create', [
+            'categories' => Kategori::all()
+        ]);
     }
 
     /**
@@ -37,7 +40,16 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'slug'  => 'required|unique:kategoris'
+        ]);
+
+        //unset($validateData['title']);
+        $validateData['nama'] = $request->title;
+
+        Kategori::create($validateData);
+        return redirect('/dashboard/categories')->with('success', 'New post has been added!');
     }
 
     /**
@@ -59,7 +71,9 @@ class AdminCategoryController extends Controller
      */
     public function edit(Kategori $category)
     {
-        //
+        return view('dashboard.categories.edit', [
+            'post' => $category
+        ]);
     }
 
     /**
@@ -71,7 +85,18 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Kategori $category)
     {
-        //
+        $validateData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => "required|unique:kategoris,slug,$category->id",
+        ]);
+
+        unset($validateData['title']);
+
+        $validateData['nama'] = $request->title;
+
+        Kategori::where('id', $category->id)->update($validateData);
+
+        return redirect('/dashboard/categories')->with('success', 'New post has been updated!');
     }
 
     /**
@@ -82,6 +107,13 @@ class AdminCategoryController extends Controller
      */
     public function destroy(Kategori $category)
     {
-        //
+        Kategori::destroy($category->id);
+        return redirect('/dashboard/categories')->with('success', 'New post has been deleted!');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Kategori::class, 'slug', $request->nama);
+        return response()->json(['slug' => $slug]);
     }
 }

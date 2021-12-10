@@ -18,7 +18,7 @@
 
             @if ($post->image)
                 <div style="max-height: 350px; overflow: hidden;">
-                    <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->kategori->nama }}" class="img-fluid mt-2">
+                    <img src="{{ $post->image }}" alt="{{ $post->kategori->nama }}" class="img-fluid mt-2">
                 </div>
             @else
                 <img src="https://source.unsplash.com/1200x400/?{{ $post->kategori->nama }}" alt="{{ $post->kategori->nama }}" class="img-fluid mt-2">

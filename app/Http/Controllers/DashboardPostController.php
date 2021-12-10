@@ -52,7 +52,9 @@ class DashboardPostController extends Controller
         ]);
 
         if ($request->file('image')) {
-            $validateData['image'] = $request->file('image')->store('post-image');
+            //$validateData['image'] = $request->file('image')->store('post-image');
+            $image  = $request->file('image');
+            $validateData['image'] = CloudinaryStorage::upload($image->getRealPath(), $image->getClientOriginalName());
         }
 
         $validateData['judul'] = $request->title;
@@ -116,7 +118,9 @@ class DashboardPostController extends Controller
             if ($request->oldImage) {
                 Storage::delete($request->oldImage);
             }
-            $validateData['image'] = $request->file('image')->store('post-image');
+            //$validateData['image'] = $request->file('image')->store('post-image');
+            $file = $request->file('image');
+            $validateData['image'] = CloudinaryStorage::replace($post->image, $file->getRealPath(), $file->getClientOriginalName());
         }
 
         $validateData['judul'] = $request->title;
@@ -140,6 +144,7 @@ class DashboardPostController extends Controller
     {
         if ($post->image) {
             Storage::delete($post->image);
+            CloudinaryStorage::delete($post->image);
         }
         Postingan::destroy($post->id);
         return redirect('/dashboard/posts')->with('success', 'New post has been deleted!');

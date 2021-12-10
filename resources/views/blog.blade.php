@@ -25,7 +25,7 @@
     
     @if ($postinganblog[0]->image)
       <div style="max-height: 350px; overflow: hidden;">
-        <img src="{{ asset('storage/' . $postinganblog[0]->image) }}" class="card-img-top" alt="...">
+        <img src="{{ $postinganblog[0]->image }}" class="card-img-top" alt="...">
       </div>
     @else
       <img src="https://source.unsplash.com/1200x400/?{{ $postinganblog[0]->kategori->nama }}" class="card-img-top" alt="...">
@@ -55,7 +55,7 @@
           </div>
 
           @if ($post->image)
-            <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top" alt="{{ $post->kategori->nama }}">
+            <img src="{{ $post->image }}" class="card-img-top" alt="{{ $post->kategori->nama }}">
           @else
             <img src="https://source.unsplash.com/400x300/?{{ $post->kategori->nama }}" class="card-img-top" alt="{{ $post->kategori->nama }}">
           @endif

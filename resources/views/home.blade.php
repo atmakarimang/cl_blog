@@ -14,9 +14,12 @@
             <div class="card-body">
                 <h5 class="card-title">{{ $news['title'] }}</h5>
                 <p> 
-                <small class="text-muted">
-                    
-                </small> 
+                    <small class="text-muted"> 
+                        @php
+                            date_default_timezone_set('Asia/Jakarta');
+                        @endphp 
+                        {{ date("l, d M Y, H:i:s", strtotime($news['pubDate'])) }}
+                    </small> 
                 </p>
                 <p class="card-text">{{ $news['description'] }}</p>  
                 <a href="{{ $news['link'] }}" target="_blank" class="btn btn-primary">Read more</a>

@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Models\Kategori;
 use App\Models\Postingan;
 use App\Models\User;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +24,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $dNews = Http::get('https://api-berita-indonesia.vercel.app/cnn/olahraga')->json();
     return view('home', [
         "title" => "Home",
-        "active" => "Home"
+        "active" => "Home",
+        "dnews" => $dNews
     ]);
 });
 

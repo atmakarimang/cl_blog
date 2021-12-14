@@ -1,8 +1,7 @@
 @extends('layout.main')
 
-@section('halaman')
-    <h1>Halaman About</h1> 
-    <div class="card mt-4 mb-4 shadow">   
+@section('halaman')  
+    <div class="card mt-5 mb-4 shadow">   
         <div class="row g-0">
           <div class="col-md-4"> 
             <img src="img/{{ $img }}" alt="{{ $name }}" class="img-fluid rounded-start">

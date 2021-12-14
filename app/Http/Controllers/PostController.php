@@ -24,7 +24,7 @@ class PostController extends Controller
         }
 
         return view('blog', [
-            "title" => "Semua Postingan " . $title,
+            "title" => "All Posts " . $title,
             "active" => "Blog",
             //"postinganblog" => Postingan::all() 
             //"postinganblog" => Postingan::latest()->get() 

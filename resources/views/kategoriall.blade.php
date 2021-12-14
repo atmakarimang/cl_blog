@@ -1,8 +1,6 @@
 @extends('layout.main')
 
 @section('halaman') 
-  <h1 class="mb-5">Kategori Postingan</h1> 
-  
   <div class="container">
       <div class="row"> 
         @foreach ($kategoriall as $kategori)

@@ -19,9 +19,9 @@
                 
                 <article class="my-3 fs-7" style="text-align: justify">
                     {!! $post["body"] !!}
-                </article>
+                </article> 
                 
-                <a href="/blog" class="text-decoration-none d-block mt-3">Kembali Ke Blog</a>
+                <a href="/blog" class="text-decoration-none d-block mt-3">Back To Blog</a>
             </div>
         </div>
     </div>

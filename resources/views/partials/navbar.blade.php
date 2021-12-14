@@ -16,10 +16,10 @@
             <a class="nav-link {{ ($active === "Blog") ? 'active' : '' }}" href="/blog">Blog</a>
           </li>  
           <li class="nav-item">   
-            <a class="nav-link {{ ($active === "Kategori") ? 'active' : '' }}" href="/kategori">Kategori</a>
+            <a class="nav-link {{ ($active === "Kategori") ? 'active' : '' }}" href="/kategori">Category</a>
           </li>  
           <li class="nav-item">   
-            <a class="nav-link {{ ($active === "Klasemen EPL") ? 'active' : '' }}" href="/klasemenepl">Klasemen EPL</a>
+            <a class="nav-link {{ ($active === "Klasemen EPL") ? 'active' : '' }}" href="/klasemenepl">EPL Standings</a>
           </li>  
         </ul>
 

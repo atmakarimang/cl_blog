@@ -17,6 +17,16 @@
         display: none;
       }
     </style>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+      * {
+        font-family: 'Inter', sans-serif;
+      }
+    </style> 
   </head>
   <body>
     

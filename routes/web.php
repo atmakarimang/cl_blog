@@ -34,7 +34,7 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     //return 'Halaman About';
-    //return view('about'); 
+    //return view('about');
     return view('about', [
         "title" => "About",
         "active" => "About",
@@ -46,8 +46,8 @@ Route::get('/about', function () {
 
 Route::get('/blog', [PostController::class, 'index']);
 
-// Halaman Single Post 
-//Route::get('blog/{slug}', [PostController::class, 'show']); 
+// Halaman Single Post
+//Route::get('blog/{slug}', [PostController::class, 'show']);
 Route::get('blog/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/kategori', function () {

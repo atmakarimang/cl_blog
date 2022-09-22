@@ -4,15 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 
+use Illuminate\Http\Request;
+
 class KlasemenController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $dEPL = Http::get('https://api-football-standings.azharimm.site/leagues/eng.1/standings?season=2021&sort=asc')->json();
+        $standingYear = date("Y");
+        if($request->year){
+            $standingYear = $request->year;
+        }
+
+        $dEPL = Http::get('https://api-football-standings.azharimm.dev/leagues/eng.1/standings', [
+            'season' => $standingYear,
+            'sort' => 'asc',
+        ])->json();
+
+        $dEPLnew = Http::get('https://api-football-standings.azharimm.dev/leagues/eng.1/')->json();
         return view('klasemen', [
             "title" => "Klasemen EPL",
             "active" => "Klasemen EPL",
-            "dataklasemen" => $dEPL
+            "dataKlasemen" => $dEPL,
+            "dataLiga" => $dEPLnew,
+            "standingYear" => $standingYear
         ]);
     }
 }

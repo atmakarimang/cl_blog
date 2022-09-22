@@ -27,6 +27,7 @@
                         <li><span class="badge rounded-pill" style="background-color: #c5f8df;color: black">UEFA Champions League</span></li>
                         <li><span class="badge rounded-pill" style="background-color: #B5E7CE;color: black">Champions League Qualifying</span></li>
                         <li><span class="badge rounded-pill" style="background-color: #B2BFD0;color: black">UEFA CUP / UEFA Europa League</span></li>
+                        <li><span class="badge rounded-pill" style="background-color: #c6d1e0;color: black">Europa Conference League Qualifying</span></li>
                         <li><span class="badge rounded-pill" style="background-color: #FF7F84;color: black">Degradation</span></li>
                     </ul>
                     Data klasemen diatas diambil dari Football Standings API milik mas azharimm, berikut link repo github beliau : <a href="https://github.com/azharimm/football-standings-api" target="blank">Klik Disini</a>

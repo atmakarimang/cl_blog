@@ -40,6 +40,9 @@
                     <th scope="col">M</th>
                     <th scope="col">S</th>
                     <th scope="col">K</th>
+                    <th scope="col">GM</th>
+                    <th scope="col">GK</th>
+                    <th scope="col">+/-</th>
                     <th scope="col">Poin</th>
                   </tr>
                 </thead>
@@ -59,11 +62,14 @@
                     <td>
                         <img src="{{ $dataepl['team']['logos'][0]['href'] }}" width="30" height="30" class="me-2">{{ $dataepl['team']['name'] }}
                     </td>
-                    <td>{{ $dataepl['stats'][3]['value'] }}</td>
                     <td>{{ $dataepl['stats'][0]['value'] }}</td>
-                    <td>{{ $dataepl['stats'][2]['value'] }}</td>
+                    <td>{{ $dataepl['stats'][6]['value'] }}</td>
+                    <td>{{ $dataepl['stats'][5]['value'] }}</td>
                     <td>{{ $dataepl['stats'][1]['value'] }}</td>
-                    <th scope="row">{{ $dataepl['stats'][6]['value'] }}</th>
+                    <td>{{ $dataepl['stats'][4]['value'] }}</td>
+                    <td>{{ $dataepl['stats'][3]['value'] }}</td>
+                    <td>{{ $dataepl['stats'][8]['value'] }}</td>
+                    <th scope="row">{{ $dataepl['stats'][2]['value'] }}</th>
                   </tr>
                   @endforeach
                 </tbody>
